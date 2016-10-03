@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="row text-center">applikation</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <button class="btn btn-default">Delete All</button>
+      <br/>
+      <div *ngFor="let task of tasks">
+        {{task.title}}
+      </div>
+    </div>
+    <div class="col-sm-8 form-group">
+
+      <input type="text" placeholder="title" class="form-control" [(ngModel)]="task.title">
+      <br/>
+      <textarea placeholder="text" class="form-control" [(ngModel)]="task.text"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary col-sm-2 col-sm-offset-5">Clear</button>
+    <button class="btn btn-default col-sm-2 col-sm-offset-1" (click)="saveTask()">Save</button>
+  </div>
+  <div class="row">
+    <p>Cache image</p>
+    <input type="file" accept="image/*" (change)="onImageSelected($event)">
+  </div>
+  <div class="row">
+    <img *ngFor="let file of files" height="150px">
+  </div>
+  <div class="row">
+    select file:
+    <input type="file" accept="image/*" (change)="onFileSelected($event)">
+  </div>
+  <div class="row">
+    <canvas id="canvas"></canvas>
+  </div>
+</div>
